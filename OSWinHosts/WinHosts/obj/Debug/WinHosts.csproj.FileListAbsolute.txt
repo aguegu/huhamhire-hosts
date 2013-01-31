@@ -1,0 +1,13 @@
+F:\项目\hosts_win\WinHosts\WinHosts\bin\Debug\WinHosts.exe
+F:\项目\hosts_win\WinHosts\WinHosts\bin\Debug\WinHosts.pdb
+F:\项目\hosts_win\WinHosts\WinHosts\bin\Debug\zh-CN\WinHosts.resources.dll
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.mainFrame.resources
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.Properties.Resources.resources
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.mainFrame.zh-CN.resources
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.csproj.GenerateResource.Cache
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\zh-CN\WinHosts.resources.dll
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.exe
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.pdb
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.csprojResolveAssemblyReference.cache
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.ErrorBox.resources
+F:\项目\hosts_win\WinHosts\WinHosts\obj\Debug\WinHosts.DownBox.resources
