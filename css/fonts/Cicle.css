@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'CicleSemi';
+    src: url('cicle_semi-webfont.eot');
+    src: url('cicle_semi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('cicle_semi-webfont.woff') format('woff'),
+         url('cicle_semi-webfont.ttf') format('truetype'),
+         url('cicle_semi-webfont.svg#CicleSemi') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+	font-family: 'CicleSemi', sans-serif;
+}
