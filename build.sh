@@ -25,3 +25,6 @@ cd tar
 
 tar -cf hosts_ipv4.tar hosts_ipv4
 tar -cf hosts_ipv6.tar hosts_ipv6
+
+gzip hosts_ipv4.tar
+gzip hosts_ipv6.tar
