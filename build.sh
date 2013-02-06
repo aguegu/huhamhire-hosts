@@ -3,37 +3,25 @@
 # Shell script to generate hosts files
 # author: Weihong Guan (@aGuegu)
 
-mkdir -p tmp
-cat info.hosts timestamp.hosts localhost.hosts > tmp/header.hosts.tmp
+cat info.hosts > /tmp/header.hosts.$$
+date +"# update timestamp: %s" >> /tmp/header.hosts.$$
+cat localhost.hosts >> /tmp/header.hosts.$$
 
 for folder in $(ls -d *_mods)
 do
-#	echo $folder
-	>tmp/$folder.hosts.tmp
+	>/tmp/$folder.hosts.$$
 	for file in $(ls $folder/)
 	do
-		cat $folder/$file >> tmp/$folder.hosts.tmp
+		cat $folder/$file >> /tmp/$folder.hosts.$$
 	done
 done
 
-cat tmp/header.hosts.tmp tmp/share_mods.hosts.tmp tmp/ipv4_mods.hosts.tmp > tmp/main_ipv4.hosts
-cat tmp/header.hosts.tmp tmp/share_mods.hosts.tmp tmp/ipv6_mods.hosts.tmp > tmp/main_ipv6.hosts
-cat tmp/adblock_mods.hosts.tmp > tmp/adblock.hosts
+cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv4_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > tar/hosts_ipv4
+cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv6_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > tar/hosts_ipv6
 
-rm tmp/*.tmp
+rm /tmp/*.$$
 
-cat tmp/main_ipv4.hosts > ../downloads/raw/ipv4_mobile_utf8/hosts
-cat tmp/main_ipv4.hosts tmp/adblock.hosts > ../downloads/raw/ipv4_unix_utf8/hosts
-cat tmp/main_ipv4.hosts tmp/adblock.hosts | iconv -f utf-8 -t GBK | sed 's/$/\r/g' > ../downloads/raw/ipv4_win_ansi/hosts
+cd tar
 
-cat tmp/main_ipv6.hosts > ../downloads/raw/ipv6_mobile_utf8/hosts
-cat tmp/main_ipv6.hosts tmp/adblock.hosts > ../downloads/raw/ipv6_unix_utf8/hosts
-cat tmp/main_ipv6.hosts tmp/adblock.hosts | iconv -f utf-8 -t GBK | sed 's/$/\r/g' > ../downloads/raw/ipv6_win_ansi/hosts
-
-rm -r tmp/
-
-for folder in $(ls ../downloads/raw)
-do
-	rm -f ../downloads/zip/$folder.zip
-	zip -j ../downloads/zip/$folder.zip ../downloads/raw/$folder/hosts > /dev/null
-done
+tar -cf hosts_ipv4.tar hosts_ipv4
+tar -cf hosts_ipv6.tar hosts_ipv6
