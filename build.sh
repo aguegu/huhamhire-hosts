@@ -27,12 +27,9 @@ rm /tmp/*.$$
 cd downloads
 
 cp hosts_ipv4 hosts
-tar -cf hosts_ipv4.tar hosts
+tar -zcf hosts_ipv4.gz hosts
 
 cp hosts_ipv6 hosts
-tar -cf hosts_ipv6.tar hosts
+tar -zcf hosts_ipv6.gz hosts
 
 rm hosts
-
-gzip -f hosts_ipv4.tar
-gzip -f hosts_ipv6.tar
