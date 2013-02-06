@@ -3,6 +3,9 @@
 # Shell script to generate hosts files
 # author: Weihong Guan (@aGuegu)
 
+# upstream set to git://github.com/huhamhire/huhamhire-hosts.git
+git checkout upstream/Hosts-Modules -- info.hosts localhost.hosts ipv4_mods/ ipv6_mods/ share_mods/
+
 cat info.hosts > /tmp/header.hosts.$$
 date +"# update timestamp: %s" >> /tmp/header.hosts.$$
 cat localhost.hosts >> /tmp/header.hosts.$$
@@ -16,15 +19,20 @@ do
 	done
 done
 
-cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv4_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > tar/hosts_ipv4
-cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv6_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > tar/hosts_ipv6
+cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv4_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > downloads/hosts_ipv4
+cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv6_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > downloads/hosts_ipv6
 
 rm /tmp/*.$$
 
-cd tar
+cd downloads
 
-tar -cf hosts_ipv4.tar hosts_ipv4
-tar -cf hosts_ipv6.tar hosts_ipv6
+cp hosts_ipv4 hosts
+tar -cf hosts_ipv4.tar hosts
 
-gzip hosts_ipv4.tar
-gzip hosts_ipv6.tar
+cp hosts_ipv6 hosts
+tar -cf hosts_ipv6.tar hosts
+
+rm hosts
+
+gzip -f hosts_ipv4.tar
+gzip -f hosts_ipv6.tar
