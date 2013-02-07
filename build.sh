@@ -4,6 +4,7 @@
 # author: Weihong Guan (@aGuegu)
 
 # upstream set to git://github.com/huhamhire/huhamhire-hosts.git
+git fetch upstream
 git checkout upstream/Hosts-Modules -- info.hosts localhost.hosts ipv4_mods/ ipv6_mods/ share_mods/
 
 cat info.hosts > /tmp/header.hosts.$$
