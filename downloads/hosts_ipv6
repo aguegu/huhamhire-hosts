@@ -35,7 +35,7 @@
 # Special thanks to: smarthosts, hostsx, ipv6-hosts, mwsl, yoyo, 
 #                    mvps, ATGFW and hpHosts
 
-# update timestamp: 1360241197
+# update timestamp: 1360243146
 ######## Localhost ########
 
 #Windows
@@ -8182,6 +8182,8 @@ fe80::1%lo0   localhost
 2404:6800:4005:1::19 r20.maa03s09.c.youtube.com
 
 # endregion
+
+# region adblock 
 
 #######################################
 #AD Blocking
@@ -54665,4 +54667,6 @@ fe80::1%lo0   localhost
 127.0.0.1 zeusclicks.com
 127.0.0.1 zintext.com
 127.0.0.1 zmedia.com
+
+# endregion
 

@@ -19,6 +19,11 @@ do
 	done
 done
 
+echo "# region adblock \n" > /tmp/adblock_mods.hosts.tmp.$$
+cat /tmp/adblock_mods.hosts.$$ >> /tmp/adblock_mods.hosts.tmp.$$
+echo "# endregion\n" >> /tmp/adblock_mods.hosts.tmp.$$
+mv /tmp/adblock_mods.hosts.tmp.$$ /tmp/adblock_mods.hosts.$$
+
 cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv4_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > downloads/hosts_ipv4
 cat /tmp/header.hosts.$$ /tmp/share_mods.hosts.$$ /tmp/ipv6_mods.hosts.$$ /tmp/adblock_mods.hosts.$$ > downloads/hosts_ipv6
 
