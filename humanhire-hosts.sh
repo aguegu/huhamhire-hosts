@@ -20,27 +20,27 @@ backup_hosts()
 
 echo "  1. Install ipv4 hosts"
 echo "  2. Install ipv6 hosts"
-echo "  3. backup system hosts to ~/.humanhire-hosts/"
-echo "  4. retore system hosts from ~/.humanhire-hosts/"
+echo "  3. Backup system hosts to ~/.humanhire-hosts/"
+echo "  4. Restore system hosts from ~/.humanhire-hosts/"
 echo "> 5. Exit"
 read -p "choice[1-5]: " choice
 
 choice=${choice:=5}
 
-if [ $choice -eq 1 ]
+if [ "$choice" -eq 1 ]
 then
 	url=https://raw.github.com/aguegu/huhamhire-hosts/Hosts-Modules/downloads/hosts_ipv4.gz
 	echo "1) Download ipv4 host for unix:"
-elif [ $choice -eq 2  ]
+elif [ "$choice" -eq 2  ]
 then
 	url=https://raw.github.com/aguegu/huhamhire-hosts/Hosts-Modules/downloads/hosts_ipv6.gz
 	echo "1) Download ipv6 host for unix:"
-elif [ $choice -eq 3 ] 
+elif [ "$choice" -eq 3 ] 
 then
 	backup_hosts;
 	echo "done."
 	exit 0
-elif [ $choice -eq 4 ]
+elif [ "$choice" -eq 4 ]
 then
 	backups=$(ls $HOME/.humanhire-hosts -r)
 	i=1
@@ -52,7 +52,13 @@ then
 	done
 	read -p "hosts to restore: [1-$((i-1))]:" id
 
-	if [ $id -ge 1 -a $id -lt $i ]
+	if [ -z "$id" ] 
+	then
+		echo "no selection. exit."
+		exit 0
+	fi
+
+	if [ "$id" -ge 1 -a "$id" -lt $i ]
 	then
 		path=$HOME/.humanhire-hosts/$(ls $HOME/.humanhire-hosts -r | head -n $id | tail -n 1)
 		echo "restore $path to /etc/hosts"
@@ -62,8 +68,6 @@ then
 	else
 		exit 4	
 	fi
-
-	echo $id
 else
 	echo "exit."
 	exit 5
